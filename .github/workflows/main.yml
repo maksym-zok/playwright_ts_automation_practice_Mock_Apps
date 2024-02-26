@@ -1,0 +1,16 @@
+name: New build
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  trigger_playwright_tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger Playwright Tests in playwright_ts_automation_practice
+        uses: peter-evans/repository-dispatch@v2
+        with:
+          token: ${{ secrets.PAT_REPO_DISPATCH }}
+          repository: maksym-zok/playwright_ts_automation_practice
+          event-type: trigger-playwright-tests
