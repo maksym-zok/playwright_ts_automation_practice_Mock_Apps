@@ -1,24 +1,16 @@
 name: New build
 on:
   push:
-    branches: [main, master]
-  pull_request:
-    branches: [main, master]
-  # workflow_run:
-  #   workflows: ["Run end-to-end tests"]
-  #   types:
-  #     - completed
+    branches:
+      - main
 
-# jobs:
-#   tests_e2e:
-#     name: Run end-to-end tests
-#     runs-on: ubuntu-latest
-#     steps:
-#       - uses: actions/checkout@v3
-#       - uses: actions/setup-node@v3
-#       - name: Install dependencies
-#         run: npm ci
-#       - name: Install playwright browsers
-#         run: npx playwright install --with-deps
-#       - name: Run tests
-#         run: npx playwright test
+jobs:
+  trigger_playwright_tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger Playwright Tests in playwright_ts_automation_practice
+        uses: peter-evans/repository-dispatch@v2
+        with:
+          token: ${{ secrets.PAT_REPO_DISPATCH }}
+          repository: maksym-zok/playwright_ts_automation_practice
+          event-type: trigger-playwright-tests
