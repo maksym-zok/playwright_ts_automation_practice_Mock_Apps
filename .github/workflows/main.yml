@@ -6,7 +6,7 @@ on:
 
 jobs:
   trigger_playwright_tests:
-    runs-on: [self-hosted, ubuntu-latest]
+    runs-on: ubuntu-latest
     steps:
       - name: Trigger Playwright Tests in playwright_ts_automation_practice
         uses: peter-evans/repository-dispatch@v2
