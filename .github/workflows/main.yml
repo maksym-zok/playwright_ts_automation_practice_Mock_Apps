@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Trigger Playwright Tests in playwright_ts_automation_practice
-        uses: peter-evans/repository-dispatch@v2
+        uses: peter-evans/repository-dispatch@v3
         with:
           token: ${{ secrets.PAT_REPO_DISPATCH }}
           repository: maksym-zok/playwright_ts_automation_practice
